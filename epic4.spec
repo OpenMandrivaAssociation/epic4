@@ -2,7 +2,7 @@
 
 Name:           epic4
 Version:        2.6
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        (E)nhanced (P)rogrammable (I)RC-II (C)lient
 Group:          Networking/IRC
 License:        BSD
@@ -20,9 +20,9 @@ Provides:       epic-help = %{help_version}
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 BuildRequires:  desktop-file-utils
-BuildRequires:  libopenssl-devel
-BuildRequires:  libncurses-devel
-BuildRequires:  libtcl-devel
+BuildRequires:  ncurses-devel
+BuildRequires:  openssl-devel
+BuildRequires:  tcl-devel
 BuildRequires:  perl-devel
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
@@ -33,7 +33,7 @@ so that the user can ``chat'' with others.
 
 %prep 
 %setup -q -a 1 -T -b 0
-%{__rm} -rf `%{_bindir}/find -type d -name CVS`
+%{__rm} -r `%{_bindir}/find -type d -name CVS`
 
 %build
 %{configure2_5x} --with-ipv6 \
@@ -43,23 +43,13 @@ so that the user can ``chat'' with others.
                  --without-socks5 \
                  --with-tcl
 
-%{make} wserv_exe="%{_prefix}/libexec"
+%{make} wserv_exe="%{_libexecdir}"
 
 %install
 %{__rm} -rf %{buildroot}
-%{makeinstall} installhelp sharedir=%{buildroot}%{_datadir} libexecdir=%{buildroot}%{_prefix}/libexec
+%{makeinstall} installhelp sharedir=%{buildroot}%{_datadir} libexecdir=%{buildroot}%{_libexecdir}
 %{__install} -m644 %{SOURCE3} %{buildroot}%{_datadir}/epic
 %{__chmod} 755 %{buildroot}%{_datadir}/epic/script/epic-crypt-gpg{,-aa}
-
-# Debian menu support
-%{__mkdir_p} %{buildroot}%{_menudir}
-%{__cat} << EOF > %{buildroot}%{_menudir}/%{name}
-?package(epic4): longtitle="EPIC is the (E)nhanced (P)rogrammable (I)RC-II (C)lient." \
-command="epic" title="Epic" needs="text"  \
-section="Internet/Chat" \
-icon="irc_section.png" \
-xdg="true"
-EOF
 
 %{__cat} > %{name}.desktop << EOF
 [Desktop Entry]
@@ -93,13 +83,10 @@ EOF
 %defattr(-,root,root,0755)
 %doc INSTALL UPDATES KNOWNBUGS BUG_FORM doc/*
 %{_bindir}/*
-%{_prefix}/libexec/*
+%{_libexecdir}/*
 %dir %{_datadir}/epic
 %config(noreplace) %{_datadir}/epic/ircII.servers
 %{_datadir}/epic/script/
 %{_datadir}/epic/help/
 %{_mandir}/man1/*
-%{_menudir}/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
-
-
