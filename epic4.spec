@@ -1,8 +1,8 @@
 %define help_version    20050315
 
 Name:           epic4
-Version:        2.6
-Release:        %mkrel 2
+Version:        2.8
+Release:        %mkrel 1
 Summary:        (E)nhanced (P)rogrammable (I)RC-II (C)lient
 Group:          Networking/IRC
 License:        BSD
