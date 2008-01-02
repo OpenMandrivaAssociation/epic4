@@ -24,6 +24,7 @@ BuildRequires:  ncurses-devel
 BuildRequires:  openssl-devel
 BuildRequires:  tcl-devel
 BuildRequires:  perl-devel
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 EPIC is the (E)nhanced (P)rogrammable (I)RC-II (C)lient.  It
