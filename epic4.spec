@@ -68,13 +68,17 @@ EOF
   --add-category="X-MandrivaLinux-Internet-Chat" \
   --dir %{buildroot}%{_datadir}/applications %{name}.desktop
 
+%if %mdkversion < 200900
 %post
 %{update_menus}
 %{update_desktop_database}
+%endif
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
 %{clean_desktop_database}
+%endif
 
 %clean
 %{__rm} -rf %{buildroot}
