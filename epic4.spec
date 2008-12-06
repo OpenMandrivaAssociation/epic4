@@ -1,8 +1,8 @@
 %define help_version    20050315
 
 Name:           epic4
-Version:        2.8
-Release:        %mkrel 3
+Version:        2.10
+Release:        %mkrel 1
 Summary:        (E)nhanced (P)rogrammable (I)RC-II (C)lient
 Group:          Networking/IRC
 License:        BSD
@@ -11,6 +11,8 @@ Source0:        ftp://ftp.epicsol.org/pub/epic/EPIC4-PRODUCTION/epic4-%{version}
 Source1:        ftp://ftp.epicsol.org/pub/epic/EPIC4-PRODUCTION/epic4-help-%{help_version}.tar.gz
 Source2:        epic.wmconfig
 Source3:        ircII.servers
+# Don't include term.h, it conflicts with termcap.h - AdamW 2008/12
+Patch0:		epic4-2.10-include.patch
 Obsoletes:      ircii-EPIC4 < %{version}-%{release}
 Provides:       ircii-EPIC4 = %{version}-%{release}
 Obsoletes:      epic < %{version}-%{release}
@@ -33,6 +35,7 @@ so that the user can ``chat'' with others.
 
 %prep 
 %setup -q -a 1 -T -b 0
+%patch0 -p1 -b .include
 %{__rm} -r `%{_bindir}/find -type d -name CVS`
 
 %build
@@ -65,7 +68,6 @@ EOF
 %{__mkdir_p} %{buildroot}%{_datadir}/applications
 %{_bindir}/desktop-file-install --vendor="mandriva" \
   --remove-category="Application" \
-  --add-category="X-MandrivaLinux-Internet-Chat" \
   --dir %{buildroot}%{_datadir}/applications %{name}.desktop
 
 %if %mdkversion < 200900
