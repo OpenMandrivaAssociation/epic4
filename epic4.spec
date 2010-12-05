@@ -2,7 +2,7 @@
 
 Name:           epic4
 Version:        2.10
-Release:        %mkrel 3
+Release:        %mkrel 4
 Summary:        (E)nhanced (P)rogrammable (I)RC-II (C)lient
 Group:          Networking/IRC
 License:        BSD
