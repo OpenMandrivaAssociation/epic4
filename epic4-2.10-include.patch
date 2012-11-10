@@ -1,0 +1,11 @@
+--- epic4-2.10/source/term.c	2008-03-17 21:24:01.000000000 -0700
++++ epic4-2.10/source/term.c.new	2008-12-04 17:41:46.000000000 -0800
+@@ -88,7 +88,7 @@
+ #  include <termio.h>
+ #  include <curses.h>
+ # endif
+-# include <term.h>
++//# include <term.h>
+ #else
+ # ifdef HAVE_TERMINFO
+ 	extern	int	setupterm();
