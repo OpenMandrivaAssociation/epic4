@@ -1,5 +1,5 @@
+removed_sources:
+  epic4-2.10.tar.bz2: 0e81ba130fb8b31be61e4b59939c932af72d0369
 sources:
-  "epic4-2.10.tar.bz2:"	0e81ba130fb8b31be61e4b59939c932af72d0369
-  "epic4-help-20050315.tar.gz:"	0651d4960b017987a726b4f5fc8ed5e5b130d4a2
-  "epic.wmconfig:"	45b7eaa6f8dab7237f236dad3df046ec6ea2ba0e
-  "ircII.servers:"	e9c20a669b7890bd67d24a83571eb51f857a44a2
+  epic4-2.10.1.tar.bz2: 038d0e11ee6bd8085dc46d531296d581cc7fc311
+  epic4-help-20050315.tar.gz: 0651d4960b017987a726b4f5fc8ed5e5b130d4a2
