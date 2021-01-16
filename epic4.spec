@@ -1,8 +1,8 @@
 %define help_version    20050315
 
 Name:           epic4
-Version:        2.10.1
-Release:        2
+Version:        2.10.9
+Release:        1
 Summary:        (E)nhanced (P)rogrammable (I)RC-II (C)lient
 Group:          Networking/IRC
 License:        BSD
@@ -23,7 +23,7 @@ Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 BuildRequires:  desktop-file-utils
 BuildRequires:  ncurses-devel
-BuildRequires:  openssl-devel
+BuildRequires:  pkgconfig(openssl)
 BuildRequires:  tcl-devel
 BuildRequires:  perl-devel
 
@@ -136,21 +136,21 @@ find %buildroot -size 0 |xargs rm -f
 - 2.6
 - Import epic4
 
-* Wed Sep 06 2006 Nicolas L�cureuil <neoclust@mandriva.org> 2.2-3mdv2007.0
+* Wed Sep 06 2006 Nicolas Lécureuil <neoclust@mandriva.org> 2.2-3mdv2007.0
 - XDG
 
 * Mon Jan 09 2006 Marcel Pol <mpol@mandriva.org> 2.2-2mdk
 - rebuild for new openssl
 
-* Mon Jun 13 2005 Per Øyvind Karlsen <pkarlsen@mandriva.com> 2.2-1mdk
+* Mon Jun 13 2005 Per Ã˜yvind Karlsen <pkarlsen@mandriva.com> 2.2-1mdk
 - 2.2
 
-* Fri May 06 2005 Per Øyvind Karlsen <pkarlsen@mandriva.com> 2.1.1-2mdk
+* Fri May 06 2005 Per Ã˜yvind Karlsen <pkarlsen@mandriva.com> 2.1.1-2mdk
 - lib64 fix
 - fix menu section
 - %%mkrel
 
-* Thu Nov 11 2004 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 2.1.1-1mdk
+* Thu Nov 11 2004 Per Ã˜yvind Karlsen <peroyvind@linux-mandrake.com> 2.1.1-1mdk
 - 2.1.1
 - drop P1 & P2 (fixed upstream)
 
