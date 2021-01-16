@@ -7,7 +7,7 @@ Summary:        (E)nhanced (P)rogrammable (I)RC-II (C)lient
 Group:          Networking/IRC
 License:        BSD
 URL:            http://www.epicsol.org/
-Source0:        ftp://ftp.epicsol.org/pub/epic/EPIC4-PRODUCTION/epic4-%{version}.tar.bz2
+Source0:        ftp://ftp.epicsol.org/pub/epic/EPIC4-PRODUCTION/epic4-%{version}.tar.xz
 Source1:        ftp://ftp.epicsol.org/pub/epic/EPIC4-PRODUCTION/epic4-help-%{help_version}.tar.gz
 Source2:        epic.wmconfig
 Source3:        ircII.servers
